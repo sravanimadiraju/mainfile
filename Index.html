@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Student Registration</title>
+</head>
+<body>
+<div align="center">
+    <h1>Student List</h1>
+    <a href="pra">Create New Student</a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>Student ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Phone No</th>
+            <th>Password</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="student : ${listStudents}">
+            <td th:text="${student.id}">Student ID</td>
+            <td th:text="${student.firstName}">First Name</td>
+            <td th:text="${student.lastName}">Last Name</td>
+            <td th:text="${student.email}">Email</td>
+            <td th:text="${student.phoneNo}">Phone No</td>
+            <td th:text="${student.password}">Password</td>
+            <td>
+                <a th:href="@{'/edit/' + ${student.id}}">Edit</a>
+                &nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/delete/' + ${student.id}}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
