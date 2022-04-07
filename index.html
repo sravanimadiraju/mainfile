@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymleaf.org"
+<head>
+    <meta charset="UTF-8">
+        <title>EmployeeProfileSystem</title>
+    </head>
+<div>
+<div align = "center"></div>
+<h1>EmployeeList</h1>
+<a href="pra">Create New Employee</a>
+<br><br/>
+<table border="1" cellpadding="10">
+    <thead>
+    <tr>
+        <th>Emp ID</th>
+        <th>Emp Firstname</th>
+        <th>Emp Lastname</th>
+        <th>Emp DOB</th>
+        <th>Emp DOJ</th>
+        <th>Emp Email</th>
+        <th>Emp Mobile</th>
+        <th>Emp Salary</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="Employee:${list Employees}">
+        <td th:text="${Emp.id}">Emp ID</td>
+        <td th:text="${Emp.Firstname}">Emp Firstname</td>
+        <td th:text="${Emp.Lastname}">Emp Lastname</td>
+        <td th:text="${Emp.DOB}">Emp DOB</td>
+        <td th:text="${Emp.DOJ}">Emp DOJ</td>
+        <td th:text="${Emp.Email}">Emp Email</td>
+        <td th:text="${Emp.Mobile}">Emp Mobile</td>
+        <td th:text="${Emp.Salary}">Emp Salary</td>
+        <td>
+            <a th:href="@{'/edit/'+${Emp.id}">Edit</a>
+            <a th:href="@{'/edit/'+${Emp.id}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</div>
+</body>
+
+</html>
